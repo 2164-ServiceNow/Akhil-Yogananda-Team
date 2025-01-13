@@ -43,12 +43,12 @@ This app enables users to search for movies, view detailed information, and rece
 - **Clone the Repository**:  Clone the project repository from GitHub
 
  ```bash
-      git clone https://github.com/2164-ServiceNow/Group11_P0.git
+      git clone https://github.com/2164-ServiceNow/Akhil-Yogananda-Team.git
 ```
 - **Navigate to the Project Directory**: Change directory to the project folder
 
 ```bash
-    cd Group11_P0
+    cd Akhil-Yogananda-Team
 ```
 - **Install Project Dependencies**:Run the following command to install all dependencies
 
