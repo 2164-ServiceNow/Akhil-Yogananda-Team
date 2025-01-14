@@ -10,10 +10,11 @@ This app enables users to search for movies, view detailed information, and rece
 - CSS
 - JavaScript
 - AngularJS
+- https://rapidapi.com/octopusteam-octopusteam-default/api/imdb236/playground/apiendpoint_a79098da-a77f-419a-aa0e-8556b47b0be8
 
 ## User Stories
 
-1. As a user, I want to search for movies by title, keyword, genre, or year of release so that I can easily find relevant movies to explore. 
+1. As a user, I want to search for movies by title, keyword, genre, or year of release so that I can easily find relevant movies to explore
 
 2. As a user, I want to view detailed information about a specific movie, including its poster, plot, director, cast, and ratings, to help me decide if it’s worth watching.
 
