@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBloom</title>
+</head>
+<body>
+    <div class="movie-details-container" ng-if="!loading">
+        <h1>{{ movie.title }}</h1>
+        <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+        <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+        <p><strong>Released On:</strong> {{ movie.release_date }}</p>
+    </div>
+    
+    <div ng-if="loading">Loading movie details...</div>
+    
+</body>
+</html>

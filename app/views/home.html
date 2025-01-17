@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineBloom</title>
+</head>
+<body>
+    <div>
+        <h1>{{ message }}</h1>
+        <a href="/movies">View Popular Movies</a>
+        <br>
+        <a href="/top-rated">View Top-Rated Movies</a>
+        <br><br>
+    </div>
+    
+    <main>
+        <section>
+            <h2>Search Movies</h2>
+            <form ng-submit="searchMovie()">
+                <input type="text" ng-model="searchQuery" placeholder="Search for a movie..." required />
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section ng-show="loading">
+            <p>Loading...</p>
+        </section>
+
+        <section ng-show="searchResults.length > 0">
+            <h3>Search Results:</h3>
+            <ul>
+                <li ng-repeat="movie in searchResults">
+                    <h4>{{ movie.title }}</h4>
+                    <p>{{ movie.overview }}</p>
+                    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                    <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
+                </li>
+            </ul>
+        </section>
+
+        <section ng-show="!loading && searchResults.length === 0 && searchQuery.trim() !== ''">
+            <p>No movies found for "{{ searchQuery }}"</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 CineBloom. All rights reserved.</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/service/movieService.js"></script>
+    <script src="/app/controller/movieSearchController.js"></script>
+
+</body>
+</html>
