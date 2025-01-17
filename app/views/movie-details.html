@@ -16,6 +16,22 @@
     </div>
     
     <div ng-if="loading">Loading movie details...</div>
+
+
+
+    <div ng-controller="movieSearchController">
+        <h1>Movie Search</h1>
+        <input type="text" ng-model="searchQuery" placeholder="Enter movie name" />
+        <button ng-click="searchMovies()">Search</button>
+
+        <div ng-if="movieData">
+            <h2>Movie Details:</h2>
+            <p><strong>Name:</strong> {{ movieData.title }}</p>
+            <p><strong>Description:</strong> {{ movieData.overview }}</p>
+            <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+            <p><strong>Release Date:</strong> ${{ movieData.release_date }}</p>
+        </div>
+    </div>
     
 </body>
 </html>

@@ -1,6 +1,4 @@
-console.log('MovieApp module initialized');
 var app = angular.module('MovieApp', ['ngRoute']);
-
 
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider

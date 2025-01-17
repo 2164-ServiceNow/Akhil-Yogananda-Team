@@ -8,45 +8,26 @@
 <body>
     <div>
         <h1>{{ message }}</h1>
-        <a href="/movies">View Popular Movies</a>
+        <a href="/movies">View All Movies</a>
         <br>
         <a href="/top-rated">View Top-Rated Movies</a>
         <br><br>
     </div>
-    
-    <main>
-        <section>
-            <h2>Search Movies</h2>
-            <form ng-submit="searchMovie()">
-                <input type="text" ng-model="searchQuery" placeholder="Search for a movie..." required />
-                <button type="submit">Search</button>
-            </form>
-        </section>
 
-        <section ng-show="loading">
-            <p>Loading...</p>
-        </section>
+    <div ng-controller="movieSearchController">
+        <h1>Movie Search</h1>
+        <input type="text" ng-model="searchQuery" placeholder="Enter movie name" />
+        <button ng-click="searchMovies()">Search</button>
 
-        <section ng-show="searchResults.length > 0">
-            <h3>Search Results:</h3>
-            <ul>
-                <li ng-repeat="movie in searchResults">
-                    <h4>{{ movie.title }}</h4>
-                    <p>{{ movie.overview }}</p>
-                    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-                    <p><strong>Rating:</strong> {{ movie.vote_average }}</p>
-                </li>
-            </ul>
-        </section>
+        <div ng-if="movieData">
+            <h2>Movie Details:</h2>
+            <p><strong>Name:</strong> {{ movieData.title }}</p>
+            <p><strong>Description:</strong> {{ movieData.overview }}</p>
+            <img ng-src="https://image.tmdb.org/t/p/w500{{ movieData.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+            <p><strong>Release Date:</strong>{{ movieData.release_date }}</p>
+        </div>
+    </div>
 
-        <section ng-show="!loading && searchResults.length === 0 && searchQuery.trim() !== ''">
-            <p>No movies found for "{{ searchQuery }}"</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 CineBloom. All rights reserved.</p>
-    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="/app/app.js"></script>

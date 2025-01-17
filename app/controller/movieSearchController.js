@@ -1,20 +1,27 @@
-app.controller('movieSearchController', function ($scope, movieService) {
-    $scope.searchQuery = "";
-    $scope.searchResults = [];
-    $scope.loading = false;
+app.controller('movieSearchController', ['$scope', 'movieService', function($scope, movieService) {
+    $scope.searchQuery = '';
+    $scope.movieData = null;
+    $scope.error = null;
 
-    // Perform the movie search
-    $scope.searchMovie = function () {
-        if ($scope.searchQuery.trim() !== "") {
-            $scope.loading = true;
-            movieService.searchMovie($scope.searchQuery).then(function (data) {
-                if (data && data.results) {
-                    $scope.searchResults = data.results;
-                } else {
-                    console.error('No results found for query:', $scope.searchQuery);
-                }
-                $scope.loading = false;
-            });
+    // Fetch movies based on the search query
+    $scope.searchMovies = function() {
+        if ($scope.searchQuery) {
+            movieService.searchMovies($scope.searchQuery)
+                .then(function(data) {
+                    if (data && data.results && data.results.length > 0) {
+                        $scope.movieData = data.results[0]; // Assuming we're showing only the first result
+                        $scope.error = null;
+                    } else {
+                        $scope.movieData = null;
+                        $scope.error = 'No movies found. Please try a different query.';
+                    }
+                })
+                .catch(function() {
+                    $scope.error = 'Error fetching movies. Please try again later.';
+                    $scope.movieData = null;
+                });
+        } else {
+            $scope.error = 'Please enter a search query.';
         }
     };
-});
+}]);
