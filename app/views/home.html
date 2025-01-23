@@ -50,7 +50,7 @@
             <label for="genres"><i class="fa fa-filter" aria-hidden="true"></i></label>
             <select id="genres" ng-model="selectedGenre" ng-change="fetchMoviesByGenre()">
                 <option value="" disabled selected>Genre</option>
-                <option ng-repeat="(id, name) in genres" value="{{id}}">{{name}}</option>
+                <option id="options" ng-repeat="(id, name) in genres" value="{{id}}">{{name}}</option>
             </select>
         </div>
 

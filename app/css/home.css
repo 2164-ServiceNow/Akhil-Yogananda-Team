@@ -75,34 +75,6 @@ body {
     background-color: white;
 }
 
-/* .genre-filter {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    color: #fff;
-
-}
-
-.genre-filter label {
-    margin-right: 10px;
-}
-
-.genre-filter select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #222;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.genre-filter select:hover {
-    background-color: #333;
-} */
-
-
 /* Search Bar */
 .search-container, .genre-filter {
     margin: 50px auto;
@@ -117,16 +89,17 @@ body {
     margin-top: -40px;
 }
 
-
 .genre-filter select {
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #444;
+     border: 1px solid #444; 
     background: transparent;
     color: #fdf2f2;
     font-size: 1rem;
     cursor: pointer;
-}
+    background-color: #141414;
+} 
+
 
 .search-container input[type="text"] {
     width: 300px;
