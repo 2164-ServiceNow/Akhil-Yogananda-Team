@@ -18,8 +18,17 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'app/views/topRatedMovieDetails.html',
             controller: 'topRatedMovieDetailsController'
         })
-        .when('/about', {
-            templateUrl: 'app/views/about.html'
+        .when('/RecentlyAddedMovies', {
+            templateUrl: 'app/views/recentlyAddedMovies.html',
+            controller:'recentlyAddedMoviesController'
+        })
+        .when('/RecentlyAddedMovies/:movieName', {
+            templateUrl: 'app/views/recentlyAddedMovieDetails.html',
+            controller: 'recentlyAddedMovieDetailsController'
+        })
+        .when('/actor', {
+            templateUrl: 'app/views/actor.html',
+            controller:'actorController'
         })
         .otherwise({
             redirectTo: '/'

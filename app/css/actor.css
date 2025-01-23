@@ -1,0 +1,62 @@
+.actor-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actor-info h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.actor-movies {
+    margin-top: 10px;
+}
+
+.actor-movies ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.actor-movies li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.actor-movies li:hover {
+    background-color: #f0f0f0;
+}
+
+.actor-movies li strong {
+    font-size: 18px;
+    color: #333;
+}
+
+.actor-movies li span {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Loading and error messages */
+.loading-message {
+    font-size: 16px;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.error-message {
+    font-size: 16px;
+    color: #ff0000;
+    margin-top: 10px;
+}

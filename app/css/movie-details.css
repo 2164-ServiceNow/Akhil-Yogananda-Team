@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -196,20 +195,20 @@ html, body {
     border-radius: 11px;
 }
 .back-link {
-    color: #e50914; /* Red color for the link */
-    text-decoration: none; /* Removes underline */
-    font-size: 2.1rem; /* Slightly larger font */
-    font-weight: 600; /* Bold text */
-    display: inline-block; /* Make it behave like a block element for padding/margin */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition and hover effect */
+    color: #e50914; 
+    text-decoration: none; 
+    font-size: 2.1rem;
+    font-weight: 600; 
+    display: inline-block; 
+    transition: color 0.3s ease, transform 0.3s ease; 
     margin-left: 50px;
     margin-bottom:60px;
 }
 
 /* Hover effect */
 .back-link:hover {
-    color: #fff; /* Change text color to white on hover */
-    transform: translateY(-2px); /* Slightly move the link upwards */
+    color: #fff; 
+    transform: translateY(-2px);
 }
 /* Footer */
 .footer {
@@ -319,3 +318,5 @@ html, body {
 .ave_back {
     background: url("https://www.gannett-cdn.com/-mm-/c03fd140debe8ad4c05cf81a5cad7ad61a12ce52/c=0-1580-2985-3266&r=x803&c=1600x800/local/-/media/2017/06/09/USATODAY/USATODAY/636326272873599176-Black-Panther-Teaser.jpg");
 }
+
+

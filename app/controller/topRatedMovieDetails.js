@@ -1,5 +1,5 @@
 app.controller('topRatedMovieDetailsController', function ($scope, $routeParams, movieService) {
-    var movieName = $routeParams.movieName.replace(/-/g, ' '); // Convert hyphens back to spaces
+    var movieName = $routeParams.movieName.replace(/-/g, ' ');
     $scope.loading = true;
 
     // Function to get movie details by title
@@ -7,7 +7,7 @@ app.controller('topRatedMovieDetailsController', function ($scope, $routeParams,
         movieService.getTopRatedMovies(1).then(function (data) {
             if (data && data.results) {
                 var movie = data.results.find(function (movie) {
-                    return movie.title.toLowerCase() === movieName.toLowerCase(); // Match movie by title
+                    return movie.title.toLowerCase() === movieName.toLowerCase(); 
                 });
                 if (movie) {
                     $scope.movie = movie;
@@ -19,6 +19,5 @@ app.controller('topRatedMovieDetailsController', function ($scope, $routeParams,
         });
     };
 
-    // Fetch movie details by name
     $scope.fetchMovieDetails(movieName);
 });

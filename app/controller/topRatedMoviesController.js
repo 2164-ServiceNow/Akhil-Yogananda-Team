@@ -16,8 +16,8 @@ app.controller('topRatedMoviesController', function ($scope, movieService, $loca
     };
 
     $scope.goToDetails = function (movieTitle) {
-        var formattedTitle = movieTitle.replace(/\s+/g, '-').toLowerCase(); // Format the title to be URL-friendly
-        $location.path('/top-rated/' + formattedTitle); // Redirect to the movie details page
+        var formattedTitle = movieTitle.replace(/\s+/g, '-').toLowerCase(); 
+        $location.path('/top-rated/' + formattedTitle); 
     };
 
     $scope.nextPage = function () {
@@ -31,7 +31,6 @@ app.controller('topRatedMoviesController', function ($scope, movieService, $loca
             $scope.fetchTopRatedMovies($scope.currentPage);
         }
     };
-
-    // Fetch top-rated movies on initialization
+    
     $scope.fetchTopRatedMovies($scope.currentPage);
 });

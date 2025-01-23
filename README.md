@@ -22,13 +22,9 @@ This app enables users to search for movies, view detailed information, and rece
 
 4. As a user, I want to search for movies by keywords so that I can find films that match my interests.
 
-5. As a user, I want to filter search results by release year or date to refine my movie search based on specific time periods.
+5. As a user, I want to view the new arrivals.
 
-6. As a user, I want to add movies to my watchlist so that I can keep track of films I want to watch in the future
-
-7. As a user, I want to manage my watchlist so that I can add, remove, or view the movies I've saved for later.
-
-8. As a user, I want to share movie links on social media platforms so that I can recommend films to my friends and followers.
+6. As a user, I want to get the search the movie by the actor name.
 
 ## Development Environment Setup
 
