@@ -16,7 +16,7 @@
         </a>
         <div class="nav-links" ng-class="{'active': isNavOpen}">
             <a href="/">All Movies</a>
-            <a href="/RecentlyAddedMovies">New Arrivals</a>
+            <a href="/top-rated">Top-Rated</a>
             <a href="/actor">Stars & Films</a>
         </div>
         <button class="hamburger" ng-click="toggleNav()">
@@ -28,16 +28,15 @@
 
     <!-- Movie Container -->
     <div class="movie-container">
-        <h1>Top Rated Movies</h1>
+        <h1>New Arrivals</h1>
 
         <!-- Loading State -->
         <div ng-if="loading" class="loading-message">Loading movies...</div>
 
         <!-- Movie Grid -->
         <div class="movie-grid" ng-if="!loading">
-            <div class="movie-card" ng-repeat="movie in topRatedMovies" ng-click="goToDetails(movie.title)">
+            <div class="movie-card" ng-repeat="movie in recentMovies" ng-click="goToDetails(movie.title)">
                 <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
-                <p>Rating: {{ movie.vote_average | number: 1 }}/10</p>
             </div>
         </div>
 

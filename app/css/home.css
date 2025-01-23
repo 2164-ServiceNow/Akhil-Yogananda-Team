@@ -75,10 +75,57 @@ body {
     background-color: white;
 }
 
+/* .genre-filter {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #fff;
+
+}
+
+.genre-filter label {
+    margin-right: 10px;
+}
+
+.genre-filter select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.genre-filter select:hover {
+    background-color: #333;
+} */
+
+
 /* Search Bar */
-.search-container {
+.search-container, .genre-filter {
     margin: 50px auto;
     text-align: center;
+}
+
+.genre-filter label {
+    margin-right: 10px;
+}
+.genre-filter {
+    margin-left: 900px;
+    margin-top: -40px;
+}
+
+
+.genre-filter select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #fdf2f2;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .search-container input[type="text"] {
@@ -116,9 +163,9 @@ body {
 /* Movie Card Styling */
 .movie-card {
     position: relative;
-    width: 250px;  /* Reduced the width of the card */
+    width: 250px; 
     background-color: #222;
-    border-radius: 8px;  /* Slightly rounded corners */
+    border-radius: 8px;  
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -126,43 +173,43 @@ body {
 }
 
 .movie-card:hover {
-    transform: scale(1.05);  /* Slightly larger scale on hover */
+    transform: scale(1.05);  
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
 }
 
 .movie-card img {
     width: 100%;
-    height:auto;  /* Adjusted height to make the cards smaller */
+    height:auto;  
     object-fit: cover;
 }
 
 /* Movie Details Styling */
 .movie-details {
-    padding: 12px;  /* Reduced padding */
+    padding: 12px; 
     text-align: left;
 }
 
 .movie-details h3 {
-    font-size: 1.3rem;  /* Smaller font size for title */
+    font-size: 1.3rem; 
     color: #e50914;
     margin-bottom: 8px;
 }
 
 .movie-details p {
-    font-size: 0.95rem;  /* Slightly smaller text */
+    font-size: 0.95rem;  
     color: #ccc;
     margin-bottom: 8px;
 }
 
 .movie-details .release-date {
-    font-size: 0.85rem;  /* Smaller font for release date */
+    font-size: 0.85rem; 
     color: #999;
 }
 
 /* Movie Grid */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);  /* Adjusted to fit 5 cards per row */
+    grid-template-columns: repeat(5, 1fr);  
     gap: 15px;
     width: 100%;
     margin-bottom: 30px;
@@ -203,7 +250,7 @@ body {
 /* Movie Grid */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 movies per row */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 10px;
     width: 100%;
     margin-bottom: 30px;
@@ -305,23 +352,23 @@ body {
     }
 
     .movie-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 movies per row on smaller screens */
+        grid-template-columns: repeat(2, 1fr); 
     }
 
     /* Movie Card adjustments for mobile */
     .movie-card {
-        width: 200px;  /* Smaller card width on mobile */
+        width: 200px;  
     }
 
     .movie-card img {
-        height: 250px;  /* Adjust image height on mobile */
+        height: 250px;  
     }
 
     .movie-results {
-        display: none; /* Hide movie results if searching */
+        display: none; 
     }
 
     .movie-container {
-        padding: 10px; /* Reduce padding on smaller screens */
+        padding: 10px; 
     }
 }

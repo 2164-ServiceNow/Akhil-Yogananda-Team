@@ -9,7 +9,7 @@ app.controller('movieSearchController', ['$scope', 'movieService', function($sco
             movieService.searchMovies($scope.searchQuery)
                 .then(function(data) {
                     if (data && data.results && data.results.length > 0) {
-                        $scope.movieData = data.results[0]; // Assuming we're showing only the first result
+                        $scope.movieData = data.results[0];
                         $scope.error = null;
                     } else {
                         $scope.movieData = null;

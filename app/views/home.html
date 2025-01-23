@@ -3,19 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/app/css/home.css">
     <title>CineBloom</title>
+
+    <!-- Fonts and Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/app/css/home.css">
+
+    <!-- AngularJS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="/app/app.js"></script>
+    <script src="/app/service/movieService.js"></script>
+    <script src="/app/controller/movieSearchController.js"></script>
+    <script src="/app/controller/mainController.js"></script>
+    <script src="/app/js/home.js"></script>
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="#" class="logo"><span class="cine">Cine</span> <span class="bloom">Bloom</span></a>
+        <a href="#" class="logo">
+            <span class="cine">Cine</span> <span class="bloom">Bloom</span>
+        </a>
         <div class="nav-links" ng-class="{'active': isNavOpen}">
             <a href="/top-rated">Top-Rated</a>
-            <a href="/">Contact</a>
-            <a href="/">About</a>
+            <a href="/RecentlyAddedMovies">New Arrivals</a>
+            <a href="/actor">Stars & Films</a>
         </div>
         <button class="hamburger" ng-click="toggleNav()">
             <div></div>
@@ -24,58 +39,64 @@
         </button>
     </nav>
 
-    <!-- Search Section -->
-    <div class="search-container" ng-controller="movieSearchController">
-        <input type="text" ng-model="searchQuery" placeholder="Search for a movie..." />
+     <!-- Main Content Section -->
+     <div class="search-container" ng-controller="mainController">
+        <!-- Search -->
+        <input type="text" ng-model="searchTerm" placeholder="Search for a movie...">
         <button ng-click="searchMovies()">Search</button>
-    
 
-    <!-- Movie Results -->
-    <div class="movie-results">
-        <div class="movie-card" ng-if="movieData">
-            <img ng-src="https://image.tmdb.org/t/p/w500{{ movieData.poster_path }}" alt="{{ movieData.title }}">
-            <div class="movie-details">
-                <h3>{{ movieData.title }}</h3>
-                <p>{{ movieData.overview }}</p>
-                <p class="release-date"><strong>Release Date:</strong> {{ movieData.release_date }}</p>
-                <p class="release-date">Rating: {{movieData.vote_average | number:1}}/10</p>
+        <!-- Genre Filter -->
+        <div class="genre-filter">
+            <label for="genres"><i class="fa fa-filter" aria-hidden="true"></i></label>
+            <select id="genres" ng-model="selectedGenre" ng-change="fetchMoviesByGenre()">
+                <option value="" disabled selected>Genre</option>
+                <option ng-repeat="(id, name) in genres" value="{{id}}">{{name}}</option>
+            </select>
+        </div>
+
+        <!-- Loading Message -->
+        <div ng-if="loading" class="loading-message">Loading movies...</div>
+
+        <!-- Default Movie Grid Section -->
+        <div class="movie-container" ng-if="!loading && viewState === 'movies'">
+            <div ng-if="loading" class="loading-message">Loading movies...</div>
+            
+            <div class="movie-grid" ng-if="!loading">
+                <div class="movie-card" ng-repeat="movie in movies" ng-click="goToDetails(movie.title)">
+                    <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
+                </div>
+            </div>
+    
+            <div class="pagination-controls">
+                <div class="pagination-bubble" ng-click="prevPage()" ng-disabled="currentPage === 1">&laquo;</div>
+                <p><strong>{{currentPage}}</strong></p>
+                <div class="pagination-bubble" ng-click="nextPage()">&raquo;</div>
             </div>
         </div>
-    </div>
-    </div>
-
-    <div class="movie-container">        
-        <div ng-if="loading" class="loading-message">Loading movies...</div>
     
-        <div class="movie-grid" ng-if="!loading">
-            <div class="movie-card" ng-repeat="movie in movies" ng-click="goToDetails(movie.title)">
+
+        <!-- Search Results Section -->
+        <div class="movie-grid" ng-if="!loading && viewState === 'search'">
+            <!-- <h3>Search Results:</h3> -->
+            <div class="movie-card" ng-repeat="movie in searchResults" ng-click="goToDetails(movie.title)">
                 <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster">
             </div>
+            <p ng-if="searchResults.length === 0">No results found for "{{searchTerm}}"</p>
         </div>
-    
-        <div class="pagination-controls">
-            <div class="pagination-bubble" ng-click="prevPage()" ng-disabled="currentPage === 1">
-                &laquo;
+
+        <!-- Genre Movies Section -->
+        <div class="movie-grid" ng-if="!loading && viewState === 'genre'">
+            <!-- <h3>Movies in {{selectedGenreName}}</h3> -->
+            <div class="movie-card" ng-repeat="movie in genreMovies" ng-click="goToDetails(movie.name)">
+                <img ng-src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.name }}" class="movie-poster">
             </div>
-            <p><strong>{{currentPage}}</strong></p>
-            <div class="pagination-bubble" ng-click="nextPage()">
-                &raquo;
-            </div>
+            <p ng-if="genreMovies.length === 0">No movies found in this genre.</p>
         </div>
-        
     </div>
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 CineBloom. All Rights Reserved.</p>
     </footer>
-
-    <script src="/app/js/home.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-    <script src="/app/app.js"></script>
-    <script src="/app/service/movieService.js"></script>
-    <script src="/app/controller/movieSearchController.js"></script>
-
 </body>
 </html>
