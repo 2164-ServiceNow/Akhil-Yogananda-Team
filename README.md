@@ -26,41 +26,9 @@ This app enables users to search for movies, view detailed information, and rece
 
 6. As a user, I want to get the search the movie by the actor name.
 
+7. As a user, I want to filter the movies by the genre
+
 ## Development Environment Setup
-
-- **Install Node.js**:
-    - Download and install Node.js from https://nodejs.org/ . 
-    - Use the latest version for better stability. 
-
-- **Install Angular CLI** : Install Angular CLI globally using npm: 
-
- ```bash 
-    npm install -g @angular/cli 
- ```
-- **Clone the Repository**:  Clone the project repository from GitHub
-
- ```bash
-      git clone https://github.com/2164-ServiceNow/Akhil-Yogananda-Team.git
-```
-- **Navigate to the Project Directory**: Change directory to the project folder
-
-```bash
-    cd Akhil-Yogananda-Team
-```
-- **Install Project Dependencies**:Run the following command to install all dependencies
-
- ```bash
-     npm install
-```
-
-- **Run the Development Server**: 
-
-    - Start the Angular development server
-
-```bash
-    ng serve
-```
-Open your browser and navigate to `http://localhost:4200` to view the application.
 
 
 ## Collaborators:
