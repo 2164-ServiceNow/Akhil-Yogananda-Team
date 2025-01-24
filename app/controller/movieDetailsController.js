@@ -21,3 +21,7 @@ app.controller('movieDetailsController', function ($scope, $routeParams, movieSe
 
     $scope.fetchMovieDetails(movieName);
 });
+
+
+
+

@@ -31,8 +31,9 @@
             <a href="/top-rated">Top-Rated</a>
             <a href="/RecentlyAddedMovies">New Arrivals</a>
             <a href="/actor">Stars & Films</a>
+            <button>HI</button>
         </div>
-        <button class="hamburger" ng-click="toggleNav()">
+        <button onclick="" class="hamburger" ng-click="toggleNav()">
             <div></div>
             <div></div>
             <div></div>
@@ -50,7 +51,7 @@
             <label for="genres"><i class="fa fa-filter" aria-hidden="true"></i></label>
             <select id="genres" ng-model="selectedGenre" ng-change="fetchMoviesByGenre()">
                 <option value="" disabled selected>Genre</option>
-                <option ng-repeat="(id, name) in genres" value="{{id}}">{{name}}</option>
+                <option id="options" ng-repeat="(id, name) in genres" value="{{id}}">{{name}}</option>
             </select>
         </div>
 

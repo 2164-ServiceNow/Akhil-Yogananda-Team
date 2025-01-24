@@ -10,7 +10,7 @@ This app enables users to search for movies, view detailed information, and rece
 - CSS
 - JavaScript
 - AngularJS
-- https://rapidapi.com/octopusteam-octopusteam-default/api/imdb236/playground/apiendpoint_a79098da-a77f-419a-aa0e-8556b47b0be8
+
 
 ## User Stories
 
