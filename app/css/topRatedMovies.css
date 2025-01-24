@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #141414;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.navbar .logo .cine {
+    color: white;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
+}
+
+.navbar .logo .bloom {
+    color: #e50914;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 500;
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #e50914;
+}
+
+/* Hamburger Menu */
+.navbar .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Movie Container */
+.movie-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.movie-container h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Movie Grid */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);  
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Movie Card Styling */
+.movie-card {
+    position: relative;
+    width: 200px;  
+    background-color: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);  
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;  
+    object-fit: cover;
+}
+
+/* Movie Title */
+.movie-title {
+    font-size: 1.2rem;
+    color: #e50914;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Movie Rating */
+.movie-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination-bubble:hover {
+    transform: translateY(-5px);
+}
+
+.pagination-bubble[ng-disabled="true"] {
+    background-color: #dcdcdc;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.pagination-bubble:active {
+    transform: translateY(1px);
+}
+
+/* Footer */
+.footer {
+    background-color: #141414;
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+/* Adjust Grid for Smaller Screens */
+@media (max-width: 768px) {
+
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+        background-color: #141414;
+        padding: 20px 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .hamburger {
+        display: flex;
+    }
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .movie-card {
+        width: 200px;  
+    }
+
+    .movie-card img {
+        height: 250px;  
+    }
+
+    .pagination-controls {
+        flex-direction: column; 
+        gap: 20px;
+    }
+}
