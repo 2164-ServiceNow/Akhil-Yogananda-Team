@@ -39,6 +39,7 @@
 
         <div ng-if="actorDetails.id" class="actor-info">
             <h2>Movies of {{actorDetails.name}}</h2>
+            <img ng-src="https://image.tmdb.org/t/p/w500{{ actorDetails.profile_path }}" alt="{{ movie.name }}" class="movie-poster">
             <div class="actor-movies">
                 <ul>
                     <li ng-repeat="movie in actorMovies">
