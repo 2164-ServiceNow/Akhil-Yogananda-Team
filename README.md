@@ -14,7 +14,7 @@ This app enables users to search for movies, view detailed information, and rece
 
 ## User Stories
 
-1. As a user, I want to search for movies by title, keyword, genre, or year of release so that I can easily find relevant movies to explore. 
+1. As a user, I want to view a list of movies so that I can explore available films.
 
 2. As a user, I want to view a list of top-rated movies so that I can discover highly recommended films.
 
