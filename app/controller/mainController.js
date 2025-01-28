@@ -1,4 +1,9 @@
 app.controller('mainController', function ($scope, $location, movieService) {
+
+
+    $scope.isNavOpen = false;
+
+
     $scope.movies = [];
     $scope.currentPage = 1;
     $scope.searchTerm = '';
@@ -19,6 +24,11 @@ app.controller('mainController', function ($scope, $location, movieService) {
         16: 'Animation',
         53: 'Thriller',
         12: 'Adventure'
+    };
+
+
+    $scope.toggleNav = function() {
+        $scope.isNavOpen = !$scope.isNavOpen;
     };
 
     $scope.fetchMovies = function (page) {

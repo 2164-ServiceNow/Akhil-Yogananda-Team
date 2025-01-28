@@ -3,6 +3,15 @@ app.controller('recentlyAddedMoviesController', function ($scope, movieService, 
     $scope.currentPage = 1;
     $scope.loading = true;
 
+
+    $scope.isNavOpen = false;
+
+
+    $scope.toggleNav = function() {
+        $scope.isNavOpen = !$scope.isNavOpen;
+    };
+
+
     $scope.fetchRecentMovies = function (page) {
         $scope.loading = true;
         movieService.recentMovies(page).then(function (data) {

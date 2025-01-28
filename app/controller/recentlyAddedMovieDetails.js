@@ -2,6 +2,13 @@ app.controller('recentlyAddedMovieDetailsController', function ($scope, $routePa
     var movieName = $routeParams.movieName.replace(/-/g, ' '); 
     $scope.loading = true;
 
+    $scope.isNavOpen = false;
+
+
+    $scope.toggleNav = function() {
+        $scope.isNavOpen = !$scope.isNavOpen;
+    };
+
     // Function to get upcoming movie details by title
     $scope.fetchRecentMovieDetails = function (movieName) {
         movieService.recentMovies(1).then(function (data) {
