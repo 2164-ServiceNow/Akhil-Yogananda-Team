@@ -2,6 +2,13 @@ app.controller('topRatedMovieDetailsController', function ($scope, $routeParams,
     var movieName = $routeParams.movieName.replace(/-/g, ' ');
     $scope.loading = true;
 
+    $scope.isNavOpen = false;
+
+
+    $scope.toggleNav = function() {
+        $scope.isNavOpen = !$scope.isNavOpen;
+    };
+
     // Function to get movie details by title
     $scope.fetchMovieDetails = function (movieName) {
         movieService.getTopRatedMovies(1).then(function (data) {

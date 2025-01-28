@@ -3,6 +3,15 @@ app.controller('topRatedMoviesController', function ($scope, movieService, $loca
     $scope.currentPage = 1;
     $scope.loading = true;
 
+
+    $scope.isNavOpen = false;
+
+
+    $scope.toggleNav = function() {
+        $scope.isNavOpen = !$scope.isNavOpen;
+    };
+
+
     $scope.fetchTopRatedMovies = function (page) {
         $scope.loading = true;
         movieService.getTopRatedMovies(page).then(function (data) {
